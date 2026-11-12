@@ -1,228 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dharani Gunasekaran | Robotics & Control Engineer</title>
-    <!-- Tailwind CSS CDN for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dharani Gunasekaran – Robotics Software Engineer</title>
+<meta name="description" content="Robotics software engineer: ROS2, LiDAR perception, state estimation and control.">
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#f6f8fa; --ink:#14202b; --muted:#53626f; --line:#d3dbe2; --accent:#0b6b6b; --accent-ink:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e1820; --ink:#e7eef3; --muted:#9fb0bd; --line:#26363f; --accent:#4fc3b8; --accent-ink:#06201d; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;line-height:1.2;margin:0}
+nav{display:flex;gap:20px;justify-content:flex-end;padding:20px 0;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:24px 0 56px}
+.hero h1{font-size:clamp(34px,6vw,52px);letter-spacing:-.01em}
+.hero .role{font-size:19px;color:var(--muted);margin:10px 0 18px}
+.hero p{max-width:52ch;margin:0 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:10px 18px;border:1.5px solid var(--accent);border-radius:6px;text-decoration:none;font-weight:600;font-size:15px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn:not(.primary){color:var(--accent)}
+.scan{width:100%;max-width:340px;justify-self:center}
+.sweep{transform-box:view-box;transform-origin:160px 160px;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.sweep{animation:none}}
+
+section{padding:40px 0;border-top:1px solid var(--line)}
+section>h2{font-size:28px;margin-bottom:24px}
+
+.project{display:grid;grid-template-columns:1fr 1.6fr;gap:8px 32px;padding:22px 0;border-top:1px solid var(--line)}
+.project:first-of-type{border-top:0;padding-top:0}
+.project h3{font-size:20px}
+.stack{color:var(--muted);font-size:14.5px;margin-top:6px}
+.project p{margin:0 0 10px;max-width:62ch}
+.project .links a{font-size:15px;margin-right:16px;font-weight:600}
+.job{display:grid;grid-template-columns:1fr 1.6fr;gap:8px 32px;padding:22px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.job h3{font-size:20px}
+.job .when{color:var(--muted);font-size:14.5px;margin-top:6px}
+.job p{margin:0}
+.job ul{margin:0;padding-left:20px;max-width:62ch}
+.job li{margin-bottom:8px}
+.skills{display:grid;grid-template-columns:200px 1fr;gap:10px 24px;margin:0}
+.skills dt{font-weight:600}
+.skills dd{margin:0;color:var(--muted)}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+
+@media (max-width:700px){
+  .hero,.project,.job,.skills{grid-template-columns:1fr}
+  .scan{max-width:240px}
+  nav{justify-content:flex-start}
+}
+</style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+<body>
+<div class="wrap">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
-        <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight text-teal-400">DG</a>
-            <div class="space-x-6 text-sm font-medium">
-                <a href="#about" class="hover:text-teal-400 transition">About</a>
-                <a href="#experience" class="hover:text-teal-400 transition">Experience</a>
-                <a href="#projects" class="hover:text-teal-400 transition">Projects</a>
-                <a href="#skills" class="hover:text-teal-400 transition">Skills</a>
-            </div>
-        </nav>
-    </header>
+  <nav aria-label="Main">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="max-w-5xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="flex-1 space-y-6">
-            <span class="text-teal-400 font-mono text-sm tracking-wider">Hi, my name is</span>
-            <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">Dharani Gunasekaran</h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-slate-400">Robotics & Control Systems Engineer</h2>
-            <p class="text-slate-400 leading-relaxed max-w-xl">
-                Currently pursuing an MSc in Mobile, Autonomous, and Robotic Systems at Grenoble INP - Ense3. 
-                Specialized in state estimation (EKF), multi-sensor data fusion, advanced control theory (MPC), and autonomous navigation.
-            </p>
-            <div class="flex gap-4 pt-2">
-                <a href="#projects" class="bg-teal-500 hover:bg-teal-600 text-slate-950 font-semibold px-6 py-3 rounded-lg transition shadow-lg shadow-teal-500/20">View My Work</a>
-                <a href="#experience" class="border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-teal-400 px-6 py-3 rounded-lg transition">Read Experience</a>
-            </div>
-        </div>
-        <!-- Profile Picture -->
-        <div class="w-64 h-64 rounded-2xl bg-gradient-to-tr from-teal-400 to-indigo-500 p-1 shadow-2xl overflow-hidden">
-            <img src="profile.jpg" alt="Dharani Gunasekaran" class="w-full h-full object-cover rounded-2xl">
-        </div>
-    </section>
+  <header class="hero">
+    <div>
+      <h1>Dharani Gunasekaran</h1>
+      <div class="role">Robotics Software Engineer</div>
+      <p>I build ROS2 systems for perception, state estimation and control, from LiDAR pipelines and Kalman filters to MPC controllers on real robots. Four years in industrial automation, now based in Grenoble, France.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <!-- Put your resume PDF in the same folder with this exact name -->
+        <a class="btn" href="Dharani_Gunasekaran_Resume.pdf">Download resume</a>
+      </div>
+    </div>
 
-    <!-- About Me Section -->
-    <section id="about" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-800/80">
-        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">01.</span> About Me
-        </h2>
-        <div class="text-slate-400 leading-relaxed space-y-4 max-w-3xl">
-            <p>
-                I am a passionate roboticist with 4 years of industrial R&D experience in Autonomous Mobile Robots (AMRs) coupled with intensive academic training in advanced control and estimation theory. My core engineering philosophy focuses on building robust perception and navigation algorithms that enable physical systems to navigate complex, real-world environments with high precision.
-            </p>
-            <p>
-                Whether it is deriving mathematical models for dynamic state estimation or writing low-latency drivers to process high-frequency sensor streams, I enjoy bridging the gap between theoretical math and practical hardware.
-            </p>
-        </div>
-    </section>
+    <!-- LiDAR scan illustration -->
+    <svg class="scan" viewBox="0 0 320 320" role="img" aria-label="Illustration of a LiDAR scan sweeping around a robot">
+      <g fill="none" stroke="var(--line)" stroke-width="1.5">
+        <circle cx="160" cy="160" r="40"/><circle cx="160" cy="160" r="80"/>
+        <circle cx="160" cy="160" r="120"/><circle cx="160" cy="160" r="150"/>
+        <line x1="160" y1="10" x2="160" y2="310"/><line x1="10" y1="160" x2="310" y2="160"/>
+      </g>
+      <g class="sweep">
+        <path d="M160 160 L160 10 A150 150 0 0 1 215 21 Z" fill="var(--accent)" opacity=".2"/>
+        <line x1="160" y1="160" x2="160" y2="10" stroke="var(--accent)" stroke-width="2"/>
+      </g>
+      <g fill="var(--accent)">
+        <circle cx="205" cy="62" r="3.5"/><circle cx="214" cy="70" r="3.5"/><circle cx="221" cy="80" r="3.5"/>
+        <circle cx="262" cy="150" r="3.5"/><circle cx="262" cy="162" r="3.5"/>
+        <circle cx="118" cy="268" r="3.5"/><circle cx="128" cy="272" r="3.5"/><circle cx="140" cy="274" r="3.5"/>
+        <circle cx="62" cy="120" r="3.5"/><circle cx="68" cy="108" r="3.5"/>
+      </g>
+      <circle cx="160" cy="160" r="9" fill="var(--ink)"/>
+    </svg>
+  </header>
 
-    <!-- Experience Section -->
-    <section id="experience" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-800/80">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">02.</span> Professional Journey
-        </h2>
-        
-        <div class="space-y-12 max-w-4xl">
-            <!-- LIAS Lab -->
-            <div class="border-l-2 border-teal-400 pl-6 relative">
-                <div class="absolute w-3 h-3 bg-teal-400 rounded-full -left-[7px] top-1.5"></div>
-                <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-white">Graduate Research Intern <span class="text-teal-400">@ LIAS Laboratory</span></h3>
-                    <span class="text-sm text-slate-500 font-mono">March 2026 — September 2026</span>
-                </div>
-                <p class="text-slate-400 text-sm mb-4">Poitiers, France</p>
-                <ul class="list-disc list-outside pl-5 text-slate-400 space-y-2 text-sm">
-                    <li>Developed an end-to-end LiDAR-based virtual odometry pipeline to overcome physical robot odometry limitations.</li>
-                    <li>Fused virtual odometry with high-frequency IMU data using an Extended Kalman Filter (EKF).</li>
-                    <li>Optimized and dynamically weighted state-covariance variables to ensure precise and robust localization.</li>
-                    <li>Integrated EKF output as a dynamic state feedback reference to a Model Predictive Controller (MPC) to calculate real-time wheel torques.</li>
-                </ul>
-            </div>
+  <section id="experience">
+    <h2>Experience</h2>
 
-            <!-- Tata Electronics -->
-            <div class="border-l-2 border-slate-700 pl-6 relative">
-                <div class="absolute w-3 h-3 bg-slate-700 rounded-full -left-[7px] top-1.5"></div>
-                <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-white">Automation & Robotics Engineer <span class="text-teal-400">@ Tata Electronics</span></h3>
-                    <span class="text-sm text-slate-500 font-mono">July 2021 — July 2025</span>
-                </div>
-                <p class="text-slate-400 text-sm mb-4">India</p>
-                <ul class="list-disc list-outside pl-5 text-slate-400 space-y-2 text-sm">
-                    <li>Designed and integrated sensor suites (LiDAR, RGB-D cameras) for industrial-grade Autonomous Mobile Robots (AMRs) in R&D environments.</li>
-                    <li>Developed, implemented, and fine-tuned multi-sensor fusion perception algorithms to enhance mapping and localized path planning in dynamic zones.</li>
-                    <li>Collaborated across engineering verticals to test, validate, and scale hardware integration frameworks.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <article class="job">
+      <div>
+        <h3>LIAS Laboratory</h3>
+        <div class="when">Research Intern, Robotics and Control Systems<br>Poitiers, France · Mar 2026 – Sep 2026</div>
+      </div>
+      <ul>
+        <li>Integrated a 360° LiDAR in ROS2 for real-time obstacle detection and environment perception at 10 Hz.</li>
+        <li>Designed and implemented an Extended Kalman Filter fusing multiple sensors (including LiDAR-based odometry) to estimate the position and orientation of a Mecanum-wheel mobile robot.</li>
+        <li>Developed an MPC-based trajectory tracking controller for an omnidirectional Mecanum-wheel robot, validated in simulation and on the real robot.</li>
+        <li>Built real-time ROS2 ↔ MATLAB/Simulink communication on the main microprocessor for control and validation.</li>
+      </ul>
+    </article>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-800/80">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">03.</span> Key Projects
-        </h2>
+    <article class="job">
+      <div>
+        <h3>Tata Electronics Pvt. Ltd.</h3>
+        <div class="when">Senior Engineer, Factory Automation and Robotics<br>Jul 2021 – Jul 2025</div>
+      </div>
+      <ul>
+        <li>Developed perception and obstacle-detection functions for an AMR prototype for part loading and unloading; supported chassis design and multi-sensor integration, and validated the design in Gazebo and RViz with the supplier.</li>
+        <li>Integrated industrial robots for pick-and-place and part repositioning across 3 manufacturing processes, delivering automation updates for 4 product-model upgrades.</li>
+        <li>Built Python/OpenCV vision routines to verify spring placement and inspect extrusion assembly before injection moulding, with ~95% pass/fail agreement against manual validation by the IE team on ~500 parts; worked with Cognex engineers on vision-system integration.</li>
+        <li>Validated PLC logic and HMI interfaces, and defined MES requirements with end-users and suppliers across 3 production lines for part-level traceability and process-data recording.</li>
+      </ul>
+    </article>
 
-        <div class="grid md:grid-cols-2 gap-6">
-            <!-- Project 1 -->
-            <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-teal-400/50 transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fa-solid fa-compass text-3xl text-teal-400"></i>
-                        <span class="text-xs font-mono text-slate-500">MATLAB / Simulink / C++</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">LiDAR/IMU EKF Localization</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Designed a robust sensor fusion estimation framework fusing dynamic virtual LiDAR scan-matching with IMU inputs. Programmed an Extended Kalman Filter adjusting sensor reliability weights dynamically to prevent error drift.
-                    </p>
-                </div>
-                <div class="flex gap-4 text-xs font-mono text-slate-400 pt-4 border-t border-slate-900">
-                    <span>#StateEstimation</span>
-                    <span>#EKF</span>
-                    <span>#SensorFusion</span>
-                </div>
-            </div>
+    <article class="job">
+      <div>
+        <h3>Pricol Ltd.</h3>
+        <div class="when">Intern, Robotics Simulation<br>Jan 2021 – Apr 2021</div>
+      </div>
+      <ul>
+        <li>Built a SCARA robot URDF model and simulation scenarios in ROS Foxy, Gazebo and RViz for integration feasibility studies.</li>
+        <li>Performed camera calibration and vision-guided robot alignment for industrial inspection tasks.</li>
+      </ul>
+    </article>
+  </section>
 
-            <!-- Project 2 -->
-            <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-teal-400/50 transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fa-solid fa-gauge-high text-3xl text-teal-400"></i>
-                        <span class="text-xs font-mono text-slate-500">Python / ROS 2</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">MPC Wheel Torque Trajectory Tracking</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Designed a Model Predictive Controller (MPC) utilizing state estimation outputs to generate smooth, optimal wheel torque control actions under kinematic constraints and friction saturation models.
-                    </p>
-                </div>
-                <div class="flex gap-4 text-xs font-mono text-slate-400 pt-4 border-t border-slate-900">
-                    <span>#ControlTheory</span>
-                    <span>#MPC</span>
-                    <span>#ROS2</span>
-                </div>
-            </div>
+  <section id="projects">
+    <h2>Projects</h2>
 
-            <!-- Project 3 -->
-            <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-teal-400/50 transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fa-solid fa-car text-3xl text-teal-400"></i>
-                        <span class="text-xs font-mono text-slate-500">Python / OpenCV</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Low-Latency Vehicle Counter</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Developed a computer vision application using OpenCV to trace bounding boxes, monitor regions of interest, and count traffic flow over signal markers in real-time with ultra-low latency constraints.
-                    </p>
-                </div>
-                <div class="flex gap-4 text-xs font-mono text-slate-400 pt-4 border-t border-slate-900">
-                    <span>#ComputerVision</span>
-                    <span>#OpenCV</span>
-                    <span>#RealTime</span>
-                </div>
-            </div>
+    <!-- To add a project: copy one block below. Replace href="#" with your repo link.
+         Links that still say href="#" are hidden automatically. -->
 
-            <!-- Project 4 -->
-            <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-teal-400/50 transition duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <i class="fa-solid fa-truck-ramp-box text-3xl text-teal-400"></i>
-                        <span class="text-xs font-mono text-slate-500">ROS / Python / C++</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">AMR Perception Integration</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Configured, calibrated, and deployed physical sensor arrays including 2D LiDAR units and depth cameras on an industrial robotic platform to achieve safe obstacle detection and reliable local mapping.
-                    </p>
-                </div>
-                <div class="flex gap-4 text-xs font-mono text-slate-400 pt-4 border-t border-slate-900">
-                    <span>#AMR</span>
-                    <span>#LiDAR</span>
-                    <span>#ROS</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <article class="project">
+      <div>
+        <h3>EKF and MPC for a Mecanum robot</h3>
+        <div class="stack">ROS2, LiDAR odometry, MATLAB/Simulink</div>
+      </div>
+      <div>
+        <p>Extended Kalman Filter fusing multiple sensors, including LiDAR-based odometry, to estimate the pose of an omnidirectional robot, plus an MPC trajectory tracking controller. Built during my research internship at LIAS.</p>
+        <div class="links"><a href="#">Code</a><a href="#">Demo video</a></div>
+      </div>
+    </article>
 
-    <!-- Skills Section -->
-    <section id="skills" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-800/80">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">04.</span> Technical Toolbox
-        </h2>
+    <article class="project">
+      <div>
+        <h3>Person tracking with LiDAR</h3>
+        <div class="stack">ROS2, C++</div>
+      </div>
+      <div>
+        <p>C++ perception pipeline with motion detection and LiDAR clustering, leg detection and real-time person tracking for human-following robots.</p>
+        <div class="links"><a href="#">Code</a><a href="#">Demo video</a></div>
+      </div>
+    </article>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-center">
-                <p class="text-teal-400 font-bold mb-1">Languages</p>
-                <p class="text-slate-400 text-sm">C++, Python, MATLAB, LaTeX</p>
-            </div>
-            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-center">
-                <p class="text-teal-400 font-bold mb-1">Robotics & Control</p>
-                <p class="text-slate-400 text-sm">ROS / ROS2 Humble, EKF, MPC, Simulink</p>
-            </div>
-            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-center">
-                <p class="text-teal-400 font-bold mb-1">Perception</p>
-                <p class="text-slate-400 text-sm">LiDAR Processing, OpenCV, Camera Fusion</p>
-            </div>
-            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 text-center">
-                <p class="text-teal-400 font-bold mb-1">Sectors</p>
-                <p class="text-slate-400 text-sm">AMR, Industrial R&D, Autonomous Systems</p>
-            </div>
-        </div>
-    </section>
+    <article class="project">
+      <div>
+        <h3>Vehicle detection and tracking</h3>
+        <div class="stack">ROS2, YOLOv8, ByteTrack, Python</div>
+      </div>
+      <div>
+        <p>Modular ROS2 pipeline that detects and tracks vehicles in real time, running at about 15 FPS on a laptop.</p>
+        <div class="links"><a href="#">Code</a><a href="#">Demo video</a></div>
+      </div>
+    </article>
 
-    <!-- Footer / Contact -->
-    <footer class="border-t border-slate-800 py-12 text-center text-slate-500 text-sm space-y-4">
-        <div class="flex justify-center gap-6 text-xl text-slate-400">
-            <a href="https://github.com" target="_blank" class="hover:text-teal-400 transition"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="hover:text-teal-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:your-email@example.com" class="hover:text-teal-400 transition"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-        <p>© 2026 Dharani Gunasekaran. All rights reserved.</p>
-    </footer>
+    <article class="project">
+      <div>
+        <h3>MPC path tracking controller</h3>
+        <div class="stack">MATLAB, Simulink</div>
+      </div>
+      <div>
+        <p>Linear time-varying MPC for vehicle path tracking that minimises steering effort while tracking yaw rate, with state-space matrices updated for changing longitudinal speed.</p>
+        <div class="links"><a href="#">Code</a></div>
+      </div>
+    </article>
 
+    <article class="project">
+      <div>
+        <h3>Quadrotor control</h3>
+        <div class="stack">Parrot Mambo, Simulink</div>
+      </div>
+      <div>
+        <p>Nonlinear model and cascaded control for a quadrotor, with an LQR controller with integral action for 3D trajectory tracking and disturbance rejection. Tested in simulation and in real flights.</p>
+        <div class="links"><a href="#">Code</a><a href="#">Demo video</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Tire–road friction model</h3>
+        <div class="stack">MATLAB, GIPSA-lab</div>
+      </div>
+      <div>
+        <p>Dynamic friction model linking slip angle, normal load and speed to the friction coefficient, integrated into a lateral and longitudinal vehicle simulation with a parameter sensitivity analysis.</p>
+        <div class="links"><a href="#">Code</a></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Parallel binary mask generator</h3>
+        <div class="stack">Python, OpenCV</div>
+      </div>
+      <div>
+        <p>Reads images in parallel, builds a binary mask of bright pixels (all channels above 200), saves lossless masks and logs the total pixel count.</p>
+        <div class="links"><a href="#">Code</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>C++, Python, MATLAB</dd>
+      <dt>Robotics</dt><dd>ROS 2 (Foxy, Humble), Nav2, tf2, colcon, CMake, URDF, Gazebo, RViz</dd>
+      <dt>Perception and estimation</dt><dd>LiDAR processing and clustering, computer vision, sensor fusion, Extended Kalman Filter, object detection and tracking</dd>
+      <dt>Control</dt><dd>MPC, LQR, trajectory tracking, vehicle dynamics</dd>
+      <dt>Tools</dt><dd>Linux, Git, Docker, OpenCV, PyTorch, Simulink</dd>
+      <dt>Languages</dt><dd>English (fluent, C1), French (elementary, A2, currently learning)</dd>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="job">
+      <div>
+        <h3>Grenoble INP – Ense3, Université Grenoble Alpes</h3>
+        <div class="when">Grenoble, France · 2025 – 2026</div>
+      </div>
+      <p>M.Sc. Mobile, Autonomous &amp; Robotic Systems<br>CGPA: 15/20</p>
+    </article>
+
+    <article class="job">
+      <div>
+        <h3>PSG College of Technology</h3>
+        <div class="when">Coimbatore, India · 2017 – 2021</div>
+      </div>
+      <p>B.E. Robotics &amp; Automation Engineering<br>CGPA: 8.11/10</p>
+    </article>
+  </section>
+
+  <footer id="contact">
+    <p>Open to robotics software roles in France. Authorised to work in France, no sponsorship required.</p>
+    <p>
+      <a href="mailto:dharani.in18@gmail.com">dharani.in18@gmail.com</a> ·
+      <a href="https://linkedin.com/in/dharani-g18">LinkedIn</a> ·
+      <a href="https://github.com/dharanig18">GitHub</a>
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Hide project links that haven't been filled in yet
+  document.querySelectorAll('a[href="#"]').forEach(function(a){ a.hidden = true; });
+</script>
 </body>
 </html>
